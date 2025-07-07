@@ -1,21 +1,275 @@
-/* *{
+:root {
+    --primary-color: #F8F8F8;
+    --secondary-color: #6C63FF;
+    --text-color: #333;
+    --violet-fonce: #534EB0;
+    --header-height: 100px;
+    --footer-height: 120px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #EEE;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    height: var(--header-height);
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.lien_entete {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    list-style: none;
+}
+
+.lien_entete a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.lien_entete a.active,
+.lien_entete a:hover {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    font-weight: 600;
+}
+
+/* ===== ACCUEIL ===== */
+.acceuil {
+    width: 80%;
+    height: 110vh;
+    margin: -50px auto 150px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-height: 450px;
+}
+
+.contenue_acceuil {
+    min-width: 40%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.acceuil h1 {
+    font-size: 5rem;
+    color: var(--violet-fonce);
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.acceuil p {
+    margin-left: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    line-height: 1.7;
+}
+
+.acceuil .an {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    margin-left: 30%;
+    display: inline-block;
+    padding: 20px 27px;
+    border-radius: 35px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.15);
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+.acceuil .an:hover {
+    background: var(--violet-fonce);
+    
     
 }
-h1{
-    text-align: center;
-    width: 60%;
-    height: auto;
-} */
- a{
-    padding: 10px;
-    background-color: aqua;
-    border-radius: 15px;
-    color: rgb(23, 23, 82);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 10px;
-    float: left;
-    
 
- }
+.acceuil img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--secondary-color);
+    box-shadow: 0 8px 24px rgba(108, 99, 255, 0.15);
+}
+
+/* ===== À PROPOS ===== */
+.apropos {
+    width: 70%;
+    height: 90vh;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.apropos h1 {
+    font-size: 3.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.apropos h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 6px;
+    background: var(--secondary-color);
+    margin: 30px auto 20px auto;
+    border-radius: 4px;
+}
+
+.apropos p {
+    font-size: 1.8rem;
+    line-height: 1.9;
+    margin-top: 20px;
+}
+
+/* ===== COMPÉTENCES ===== */
+.mes_competences {
+    width: 80%;
+    height: 100vh;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.mes_competences h1 {
+    font-size: 3.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.mes_competences h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 6px;
+    background: var(--secondary-color);
+    margin: 30px auto 20px auto;
+    border-radius: 4px;
+}
+
+.mes_competences table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(108, 99, 255, 0.08);
+    font-size: 1.8rem;
+}
+
+.mes_competences table th {
+    background: var(--secondary-color);
+    color: white;
+    font-weight: 700;
+    padding: 35px;
+    text-align: left;
+}
+
+.mes_competences table td {
+    padding: 30px;
+    text-align: left;
+    background: #fff;
+    color: var(--text-color);
+    border-bottom: 1.5px solid #e5e5e5;
+}
+
+.mes_competences table tr:nth-child(4) td {
+    border-bottom: none;
+}
+
+.mes_competences table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    width: 100%;
+    background: var(--secondary-color);
+    color: #fafbfd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 40px;
+    font-size: 1.6rem;
+    margin-top: 80px;
+}
+
+footer .lin_footer {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+footer .lin_footer a {
+    color: #fafbfd;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+footer .lin_footer a:hover {
+    color: #e0e0f3;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .acceuil {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .acceuil img {
+        margin-top: 30px;
+    }
+
+    .apropos, .mes_competences {
+        width: 90%;
+    }
+
+    .mes_competences table {
+        font-size: 1rem;
+    }
+}
