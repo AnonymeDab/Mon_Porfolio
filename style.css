@@ -5,6 +5,11 @@
     --violet-fonce: #534EB0;
     --header-height: 100px;
     --footer-height: 120px;
+    --gris-claire:#EEE;
+    --gris-tres-claire:#F8F8F8;
+    --orange-vif:#FFA726;
+    --taille-ecrit:1.6rem;
+
 }
 
 * {
@@ -52,23 +57,46 @@ header h1 {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: bold;
     padding-bottom: 3px;
     border-bottom: 2px solid transparent;
+    border-bottom: 5px;
     transition: all 0.2s ease;
 }
 
-.lien_entete a.active,
+
 .lien_entete a:hover {
     color: var(--secondary-color);
-    border-bottom: 3px solid var(--secondary-color);
-    font-weight: 600;
+    
+
 }
+
+.lien_entete a::after {
+    width: 0;
+    left: 0;
+    content: "";
+    position: absolute;
+    height: 2.5px;
+    border-bottom: 2px solid var(--violet-fonce);
+    font-weight: bold;
+    transition: width 0.3s ease;
+
+}
+
+.lien_entete a.active {
+    color: var(--secondary-color);
+    
+}
+
+.lien_entete a.active a::after{
+    width: 100%;
+}
+
 
 /* ===== ACCUEIL ===== */
 .acceuil {
-    width: 80%;
-    height: 110vh;
+    width: 75%;
+    height: 100vh;
     margin: -50px auto 150px auto;
     display: flex;
     align-items: center;
@@ -86,7 +114,7 @@ header h1 {
 }
 
 .acceuil h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
     color: var(--violet-fonce);
     font-weight: 800;
     margin-bottom: 25px;
@@ -94,7 +122,7 @@ header h1 {
 
 .acceuil p {
     margin-left: 20px;
-    font-size: 2.2rem;
+    font-size: var(--taille-ecrit);
     margin-bottom: 50px;
     line-height: 1.7;
 }
@@ -102,28 +130,34 @@ header h1 {
 .acceuil .an {
     background: var(--secondary-color);
     color: var(--primary-color);
-    margin-left: 30%;
+    margin-left: 20%;
     display: inline-block;
-    padding: 20px 27px;
+    padding: 14px 18px;
     border-radius: 35px;
     font-weight: bold;
     font-size: 1.6rem;
     text-decoration: none;
     text-transform: uppercase;
-    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.15);
-    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    cursor: pointer;
+    /* box-shadow: 0 5px 20px rgba(108, 99, 255, 0.15); */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     width: fit-content;
+    /* margin-top: 0.1rem; */
+}
+.acceuil .an:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
 }
 
-.acceuil .an:hover {
-    background: var(--violet-fonce);
-    
-    
-}
+/* .acceuil .an:hover {
+    background: var(--violet-fonce);  
+} */
 
 .acceuil img {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     border-radius: 50%;
     border: 8px solid var(--secondary-color);
@@ -132,14 +166,14 @@ header h1 {
 
 /* ===== À PROPOS ===== */
 .apropos {
-    width: 70%;
-    height: 90vh;
+    width: 60%;
+    height: 80vh;
     margin: 80px auto;
     text-align: center;
 }
 
 .apropos h1 {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     color: var(--secondary-color);
     margin-bottom: 20px;
     position: relative;
@@ -157,7 +191,7 @@ header h1 {
 }
 
 .apropos p {
-    font-size: 1.8rem;
+    font-size: var(--taille-ecrit);
     line-height: 1.9;
     margin-top: 20px;
 }
@@ -165,13 +199,13 @@ header h1 {
 /* ===== COMPÉTENCES ===== */
 .mes_competences {
     width: 80%;
-    height: 100vh;
+    height: 90vh;
     margin: 80px auto;
     text-align: center;
 }
 
 .mes_competences h1 {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     color: var(--secondary-color);
     margin-bottom: 40px;
     position: relative;
@@ -196,32 +230,45 @@ header h1 {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(108, 99, 255, 0.08);
-    font-size: 1.8rem;
+    font-size: var(--taille-ecrit);
 }
 
 .mes_competences table th {
     background: var(--secondary-color);
     color: white;
     font-weight: 700;
-    padding: 35px;
+    padding: 30px;
     text-align: left;
 }
 
 .mes_competences table td {
-    padding: 30px;
+    padding: 25px;
     text-align: left;
-    background: #fff;
+    background: transparent; /* <-- Important : laisse la couleur de fond à la ligne */
     color: var(--text-color);
-    border-bottom: 1.5px solid #e5e5e5;
+    border-bottom: 1.5px solid var(--gris-claire);
 }
 
-.mes_competences table tr:nth-child(4) td {
+.mes_competences tbody tr:nth-child(even){
+    background-color: #fdfdfd;
+}
+
+.mes_competences tbody tr{
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mes_competences tbody tr:hover{
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+}
+
+/* .mes_competences table tr:nth-child(4) td {
     border-bottom: none;
 }
 
 .mes_competences table tr:last-child td {
     border-bottom: none;
-}
+} */
 
 /* ===== FOOTER ===== */
 footer {
@@ -233,7 +280,7 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 40px 40px;
-    font-size: 1.6rem;
+    font-size: var(--taille-ecrit);
     margin-top: 80px;
 }
 
@@ -246,12 +293,15 @@ footer .lin_footer {
 footer .lin_footer a {
     color: #fafbfd;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     transition: color 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
 }
 
 footer .lin_footer a:hover {
-    color: #e0e0f3;
+    color: var(--orange-vif);
+    transform: translateY(-3px);
 }
 
 /* ===== RESPONSIVE ===== */
