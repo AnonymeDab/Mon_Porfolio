@@ -46,11 +46,16 @@ header h1 {
     font-weight: bold;
 }
 
+
 .lien_entete {
     display: flex;
-    gap: 60px;
+    gap: 30px;
     align-items: center;
     list-style: none;
+}
+
+ul li {
+    margin-left: 25px;
 }
 
 .lien_entete a {
@@ -58,33 +63,41 @@ header h1 {
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: bold;
-    padding-bottom: 3px;
-    border-bottom: 2px solid transparent;
-    border-bottom: 5px;
-    transition: all 0.2s ease;
+    padding: 10px 0;
+    position: relative;
+    /* border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 5px;*/
+    transition: width 0.3s ease; 
 }
 
 
 .lien_entete a:hover {
     color: var(--secondary-color);
-    
+    border-bottom: 4px solid var(--secondary-color);
 
 }
 
 .lien_entete a::after {
     width: 0;
     left: 0;
+    bottom: 0;
     content: "";
     position: absolute;
     height: 2.5px;
-    border-bottom: 2px solid var(--violet-fonce);
-    font-weight: bold;
+    /* font-weight: bold; */
+    background-color: var(--secondary-color);
     transition: width 0.3s ease;
 
 }
 
+.lien_entete a:hover a::after{
+    width: 100%;
+}
+
 .lien_entete a.active {
     color: var(--secondary-color);
+    border-bottom: 4px solid var(--secondary-color);
+
     
 }
 
@@ -199,7 +212,7 @@ header h1 {
 /* ===== COMPÉTENCES ===== */
 .mes_competences {
     width: 80%;
-    height: 90vh;
+    height:75vh;
     margin: 80px auto;
     text-align: center;
 }
@@ -207,7 +220,7 @@ header h1 {
 .mes_competences h1 {
     font-size: 3.5rem;
     color: var(--secondary-color);
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     position: relative;
     padding-bottom: 25px;
 }
